@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Read the number
+echo "Enter a number:"
+read number
+
+# Check if the number is negative
+if [ $number -lt 0 ]; then
+    echo "Invalid input"
+    exit 1
+fi
+
+# Initialize a variable to store the reverse
+reverse=0
+
+# Reverse the number using a loop
+while [ $number -gt 0 ]; do
+    remainder=$((number % 10)) # Get the last digit
+    reverse=$((reverse * 10 + remainder)) # Add the digit to the reversed number
+    number=$((number / 10)) # Remove the last digit
+done
+
+# Print the reversed number
+echo "The reverse of the number is: $reverse"
